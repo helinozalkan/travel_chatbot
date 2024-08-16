@@ -1,0 +1,76 @@
+.add-city-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #34495e;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.add-city-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ddd; /* Başlık rengi */
+}
+
+.add-city-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-city-container label {
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #ddd; /* Label rengi */
+}
+
+.add-city-container input[type="text"],
+.add-city-container input[type="number"],
+.add-city-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: #000; /* Input ve textarea metin rengi */
+    background-color: #fff; /* Input ve textarea arka plan rengi */
+}
+
+.add-city-container textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.add-city-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Butonlar arasına boşluk */
+}
+
+.add-city-container button:hover {
+    background-color: #0056b3;
+}
+
+.add-city-container .button-container {
+    display: flex;
+    justify-content: flex-end; /* Butonları sağa hizalar */
+    margin-top: 10px;
+}
+
+.add-city-container .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
