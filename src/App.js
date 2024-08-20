@@ -9,6 +9,7 @@ import { fetchChatbotResponse } from './api';
 import CitySelector from './CitySelector';
 import AddCity from './AddCity';
 
+//function metodu
 function App() {
   const [messages, setMessages] = useState(() => {
     const userId = localStorage.getItem('userId');
