@@ -1,10 +1,10 @@
 .add-city-container {
-    max-width: 600px;
+    max-width: 1000px; /* Maksimum genişliği artır */
     margin: 0 auto;
-    padding: 20px;
+    padding: 30px; /* İç boşlukları artır */
     border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge */
     background-color: #34495e;
     position: absolute;
     top: 50%;
@@ -13,8 +13,8 @@
 }
 
 .add-city-container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
+    margin-bottom: 30px; /* Başlık altındaki boşluğu artır */
+    font-size: 28px; /* Başlık font boyutunu artır */
     color: #ddd; /* Başlık rengi */
 }
 
@@ -24,39 +24,40 @@
 }
 
 .add-city-container label {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Etiketler arası boşluğu artır */
     font-weight: bold;
     color: #ddd; /* Label rengi */
+    font-size: 18px; /* Etiket font boyutunu artır */
 }
 
 .add-city-container input[type="text"],
 .add-city-container input[type="number"],
 .add-city-container textarea {
     width: 100%;
-    padding: 10px;
+    padding: 15px; /* İç boşlukları artır */
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 18px; /* Font boyutunu artır */
     box-sizing: border-box;
     color: #000; /* Input ve textarea metin rengi */
     background-color: #fff; /* Input ve textarea arka plan rengi */
 }
 
 .add-city-container textarea {
-    height: 100px;
+    height: 150px; /* Textarea yüksekliğini artır */
     resize: vertical;
 }
 
 .add-city-container button {
-    padding: 10px 20px;
+    padding: 15px 25px; /* Buton iç boşluklarını artır */
     border: none;
     border-radius: 4px;
     background-color: #007bff;
     color: #fff;
-    font-size: 16px;
+    font-size: 18px; /* Buton font boyutunu artır */
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-right: 10px; /* Butonlar arasına boşluk */
+    margin-right: 15px; /* Butonlar arasına boşluk */
 }
 
 .add-city-container button:hover {
@@ -66,11 +67,22 @@
 .add-city-container .button-container {
     display: flex;
     justify-content: flex-end; /* Butonları sağa hizalar */
-    margin-top: 10px;
+    margin-top: 15px; /* Butonların üst boşluğunu artır */
 }
 
 .add-city-container .error {
     color: red;
-    font-size: 14px;
-    margin-top: 10px;
+    font-size: 16px; /* Hata mesajı font boyutunu artır */
+    margin-top: 15px; /* Hata mesajının üst boşluğunu artır */
+    font-weight: bold; /* Hata mesajını vurgular */
+}
+
+/* Kapat butonuna özel stil */
+.add-city-container button.close-button {
+    background-color: #dc3545; /* Kapat butonu için kırmızı renk */
+    margin-right: 0; /* Sağdaki boşluğu kaldır */
+}
+
+.add-city-container button.close-button:hover {
+    background-color: #c82333; /* Hover efekti */
 }

@@ -5,29 +5,29 @@ import './AddCity.css';
 
 const AddCity = ({ onClose }) => {
     const [cityName, setCityName] = useState('');
-    const [description, setDescription] = useState(''); // İngilizce açıklama
-    const [attractions, setAttractions] = useState(''); // Turistik yerler
-    const [localDishes, setLocalDishes] = useState(''); // Yerel yemekler
+    const [description, setDescription] = useState('');
+    const [attractions, setAttractions] = useState('');
+    const [localDishes, setLocalDishes] = useState('');
     const [error, setError] = useState('');
 
-    const navigate = useNavigate(); // Yönlendirme için hook
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         const formData = {
-        name: cityName || '', // Varsayılan boş string
-        descriptionEnglish: description || '', // Varsayılan boş string
-        attractionsEnglish: (attractions || '').split(',').map(attraction => attraction.trim()), // Varsayılan boş string
-        localDishesEnglish: (localDishes || '').split(',').map(dish => dish.trim()), // Varsayılan boş string
-            minCost: Math.floor(Math.random() * 1000) + 1 // Rastgele maliyet
+            name: cityName || '',
+            descriptionEnglish: description || '',
+            attractionsEnglish: (attractions || '').split(',').map(attraction => attraction.trim()),
+            localDishesEnglish: (localDishes || '').split(',').map(dish => dish.trim()),
+            minCost: Math.floor(Math.random() * 1000) + 1
         };
          
         try {
             const result = await CityService.AddCity(formData);
             if (result.success) {
                 alert('Şehir başarıyla eklendi!');
-                navigate('/'); // Chatbot ekranına yönlendirme
+                onClose(); // Call onClose when the city is added successfully
             } else {
                 setError(result.message);
             }
@@ -38,10 +38,14 @@ const AddCity = ({ onClose }) => {
 
     const handleClear = () => {
         setCityName('');
-        setDescription(''); // Temizle
+        setDescription('');
         setAttractions('');
         setLocalDishes('');
         setError('');
+    };
+
+    const handleClose = () => {
+        onClose(); // Call onClose when the "Kapat" button is clicked
     };
 
     return (
@@ -86,6 +90,7 @@ const AddCity = ({ onClose }) => {
                 <div className="button-container">
                     <button type="submit">Kaydet</button>
                     <button type="button" onClick={handleClear}>Temizle</button>
+                    <button type="button" onClick={handleClose}>Kapat</button> {/* Add Kapat button */}
                 </div>
                 {error && <div className="error">{error}</div>}
             </form>

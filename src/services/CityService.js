@@ -9,17 +9,18 @@ export default class CityService {
                 },
                 body: JSON.stringify(formData),
             });
-            
 
             if (!response.ok) {
-                throw new Error('Şehir verileri eklenirken bir hata oluştu.');
+                // API'den dönen hata mesajını al
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Şehir verileri eklenirken bir hata oluştu.');
             }
 
             const result = await response.json();
             return { success: true, data: result };
         } catch (error) {
             console.error('Error:', error);
-            return { success: false, message: 'Eklemeye çalıştığınız şehir zaten listede mevcut.' };
+            return { success: false, message: error.message || 'Bir hata oluştu. Lütfen tekrar deneyin.' };
         }
     }
 }

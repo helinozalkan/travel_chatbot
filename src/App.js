@@ -22,7 +22,7 @@ function App() {
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
-  const [cityListKey, setCityListKey] = useState(0); // Şehirler listesini güncellemek için anahtar
+  const [cityListKey, setCityListKey] = useState(0);
 
   const messageEndRef = useRef(null);
   const navigate = useNavigate();
@@ -106,29 +106,24 @@ function App() {
     }
   };
 
-  // Yeni sohbet başlat
   const handleNewChat = () => {
-    setMessages([]); // Chat ekranını temizle
-    // localStorage'daki mevcut mesajları silmeyin
+    setMessages([]);
   };
 
-  // Şehir seçimi
   const handleCitySelect = (city) => {
     setInput(city);
   };
 
-  // Profil menüsü açma/kapatma
   const toggleProfileMenu = () => {
     setIsProfileMenuOpen(!isProfileMenuOpen);
   };
 
-  // Giriş yap
   const handleLogin = () => {
     const userId = localStorage.getItem('userId');
     if (userId) {
       const savedMessages = localStorage.getItem(`chatMessages_${userId}`);
       if (savedMessages) {
-        setMessages(JSON.parse(savedMessages));  // Mesajları localStorage'dan yükle
+        setMessages(JSON.parse(savedMessages));
       } else {
         setMessages([]);
       }
@@ -137,11 +132,10 @@ function App() {
     setShowLogin(false);
   };
 
-  // Çıkış yap
   const handleLogout = () => {
     const userId = localStorage.getItem('userId');
     if (userId) {
-      localStorage.setItem(`chatMessages_${userId}`, JSON.stringify(messages));  // Çıkış yapmadan önce mesajları kaydet
+      localStorage.setItem(`chatMessages_${userId}`, JSON.stringify(messages));
     }
     localStorage.removeItem('userId');
     setIsLoggedIn(false);
@@ -149,13 +143,17 @@ function App() {
     setMessages([]);
   };
 
+  const handleCityAdded = () => {
+    setCityListKey(prevKey => prevKey + 1);
+  };
+
+  const handleCloseAddCity = () => {
+    navigate('/'); // Navigate to the main screen when closing the AddCity form
+  };
+
   if (showLogin) {
     return <Login onLogin={handleLogin} />;
   }
-
-  const handleCityAdded = () => {
-    setCityListKey(prevKey => prevKey + 1); // Şehirler listesini yeniden yüklemek için anahtarı güncelle
-  };
 
   return (
     <div className="app-container">
@@ -225,7 +223,7 @@ function App() {
       </div>
 
       <Routes>
-        <Route path="/add-city" element={<AddCity onCityAdded={handleCityAdded} />} />
+        <Route path="/add-city" element={<AddCity onClose={handleCloseAddCity} />} />
         {/* Diğer rotalar */}
       </Routes>
     </div>
