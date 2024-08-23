@@ -43,7 +43,12 @@ export const fetchCities = async () => {
 
     if (Array.isArray(response.data)) {
       return response.data;
-    } else {
+    }
+    else if (response.data.DataSource) {
+      // Eğer yanıt `DataSource` bilgisini içeriyorsa, bu bilgiyi de loglayın
+      console.log('Yanıt Kaynağı:', response.data.DataSource);
+      return [];
+    }  else {
       console.error('Şehir yanıtı beklenen formatta değil.');
       return [];
     }

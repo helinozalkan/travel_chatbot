@@ -17,6 +17,7 @@ function App() {
     return savedMessages ? JSON.parse(savedMessages) : [];
   });
 
+  //yorum satırı
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -163,8 +164,8 @@ function App() {
           ☰
         </button>
         <div className="menu">
-          <Link to="/add-city" className="add-city-button">Şehir Ekle</Link>
-          <button className="new-chat-button" onClick={handleNewChat}>Yeni Sohbet</button>
+        <button className="add-city-button" onClick={() => navigate('/add-city')}>Şehir Ekle</button>
+        <button className="new-chat-button" onClick={handleNewChat}>Yeni Sohbet</button>
           <Link to="/">Anasayfa</Link>
           <Link to="#">Yayın Akışı</Link>
           <Link to="#">Paketler</Link>

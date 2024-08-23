@@ -3,7 +3,7 @@
     margin: 0 auto;
     padding: 30px; /* İç boşlukları artır */
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 25px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge */
     background-color: #34495e;
     position: absolute;
@@ -24,6 +24,7 @@
 }
 
 .add-city-container label {
+    
     margin-bottom: 20px; /* Etiketler arası boşluğu artır */
     font-weight: bold;
     color: #ddd; /* Label rengi */
@@ -49,20 +50,22 @@
 }
 
 .add-city-container button {
-    padding: 15px 25px; /* Buton iç boşluklarını artır */
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 18px; /* Buton font boyutunu artır */
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-right: 15px; /* Butonlar arasına boşluk */
+    padding: 20px 40px !important; /* Buton iç boşluklarını daha fazla artır */
+    border: none !important;
+    border-radius: 30px !important; /* Köşeleri daha yuvarlak yapmak için */
+    background-color: #007bff !important;
+    color: #fff !important;
+    font-size: 22px !important; /* Font boyutunu artır */
+    cursor: pointer !important;
+    transition: background-color 0.3s ease !important;
+    margin-right: 15px !important; /* Butonlar arasındaki boşluğu koru */
 }
 
 .add-city-container button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3 !important;
 }
+
+
 
 .add-city-container .button-container {
     display: flex;
