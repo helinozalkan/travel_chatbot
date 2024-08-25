@@ -5,11 +5,19 @@ import Login from './Login';
 import menuPhoto from './assets/menu-photo.png';
 import userProfilePic from './assets/user-profile.png';
 import botProfilePic from './assets/bot-profile.jpg';
+import avatar1 from './assets/user-profile.png'; // Yeni avatarlar eklenmiş
+import avatar2 from './assets/user-girl-profile.png';
+import avatar3 from './assets/man-profile.png';
+import avatar4 from './assets/user-boy-profile.png';
+import avatar5 from './assets/profile-dog2.jpg';
+import avatar6 from './assets/profile-wolf.png';
+import avatar7 from './assets/profile-cat.png';
+import avatar8 from './assets/profile-panda.jpg';
+
 import { fetchChatbotResponse } from './api';
 import CitySelector from './CitySelector';
 import AddCity from './AddCity';
 
-//function metodu
 function App() {
   const [messages, setMessages] = useState(() => {
     const userId = localStorage.getItem('userId');
@@ -17,7 +25,6 @@ function App() {
     return savedMessages ? JSON.parse(savedMessages) : [];
   });
 
-  //yorum satırı
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,6 +32,8 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [showLogin, setShowLogin] = useState(true);
   const [cityListKey, setCityListKey] = useState(0);
+  const [showAvatarModal, setShowAvatarModal] = useState(false);
+  const [selectedAvatar, setSelectedAvatar] = useState(userProfilePic); // Varsayılan profil resmi
 
   const messageEndRef = useRef(null);
   const navigate = useNavigate();
@@ -52,6 +61,17 @@ function App() {
       messageEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
+
+  useEffect(() => {
+    const storedAvatar = localStorage.getItem('userAvatar');
+    if (storedAvatar) {
+      setSelectedAvatar(storedAvatar);
+    } else {
+      // Varsayılan avatarı ayarla
+      setSelectedAvatar(userProfilePic);
+    }
+  }, []);
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -153,6 +173,23 @@ function App() {
     navigate('/'); // Navigate to the main screen when closing the AddCity form
   };
 
+  const openAvatarModal = () => {
+    setShowAvatarModal(true);
+  };
+
+  const closeAvatarModal = () => {
+    setShowAvatarModal(false);
+  };
+  
+  const handleAvatarSelect = (avatar) => {
+    setSelectedAvatar(avatar);
+    localStorage.setItem('userAvatar', avatar); // Profil resmini localStorage'a kaydedin
+    alert('Profil fotoğrafınız başarıyla değiştirildi!'); // Avatar değiştirildiğinde alert göster
+  
+    closeAvatarModal();
+  };
+  
+
   if (showLogin) {
     return <Login onLogin={handleLogin} />;
   }
@@ -164,8 +201,8 @@ function App() {
           ☰
         </button>
         <div className="menu">
-        <button className="add-city-button" onClick={() => navigate('/add-city')}>Şehir Ekle</button>
-        <button className="new-chat-button" onClick={handleNewChat}>Yeni Sohbet</button>
+          <button className="add-city-button" onClick={() => navigate('/add-city')}>Şehir Ekle</button>
+          <button className="new-chat-button" onClick={handleNewChat}>Yeni Sohbet</button>
           <Link to="/">Anasayfa</Link>
           <Link to="#">Yayın Akışı</Link>
           <Link to="#">Paketler</Link>
@@ -185,7 +222,7 @@ function App() {
           <div className="message-area">
             {messages.map((msg, index) => (
               <div key={index} className={`message-container ${msg.isUser ? 'user' : 'bot'}`}>
-                <img src={msg.isUser ? userProfilePic : botProfilePic} alt="Profile" className="profile-pic" />
+                <img src={msg.isUser ? selectedAvatar : botProfilePic} alt="Profile" className="profile-pic" />
                 <div className={`message ${msg.isUser ? 'user-message' : 'bot-message'} ${msg.isLoadingMessage ? 'loading-message' : ''}`}>
                   {msg.text}
                 </div>
@@ -200,25 +237,33 @@ function App() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Mesajınızı yazın..."
             />
-            <button type="submit">Gönder</button>
+            <button type="submit" className="button">
+              Gönder
+              <div className="hoverEffect">
+                <div></div>
+              </div>
+            </button>
           </form>
         </div>
       </div>
 
       <div className="profile-container">
-        <img
-          src={userProfilePic}
-          alt="Profile"
-          className="profile-pic"
-          onClick={toggleProfileMenu}
-        />
-        <div className={`profile-menu ${isProfileMenuOpen ? 'active' : ''}`}>
-          <Link to="#">Hesap Bilgileri</Link>
-          <Link to="#">Sohbet Geçmişim</Link>
-          <Link to="#">Ayarlar</Link>
-          <a href="#" onClick={handleLogout}>Çıkış Yap</a>
-        </div>
-      </div>
+  <img
+    src={selectedAvatar}
+    alt="Profile"
+    className="profile-pic"
+    onClick={toggleProfileMenu}
+  />
+  <div className={`profile-dropdown ${isProfileMenuOpen ? 'active' : ''}`}>
+  <button class= "customize-button" onClick={openAvatarModal}>Özelleştir!</button>
+
+    <Link to="#">Hesap Bilgileri</Link>
+    <Link to="#">Sohbet Geçmişim</Link>
+    <Link to="#">Ayarlar</Link>
+    <a href="#" onClick={handleLogout}>Çıkış Yap</a>
+  </div>
+</div>
+
 
       <div className="city-selector-container">
         <CitySelector onCitySelect={handleCitySelect} key={cityListKey} />
@@ -228,6 +273,26 @@ function App() {
         <Route path="/add-city" element={<AddCity onClose={handleCloseAddCity} />} />
         {/* Diğer rotalar */}
       </Routes>
+
+      {showAvatarModal && (
+        <div className="avatar-modal">
+          <div className="avatar-modal-content">
+            <h3>Avatarını seç ve hesabını özelleştir!</h3>
+            <div className="avatar-options">
+              <img src={avatar1} alt="Avatar 1" onClick={() => handleAvatarSelect(avatar1)} />
+              <img src={avatar2} alt="Avatar 2" onClick={() => handleAvatarSelect(avatar2)} />
+              <img src={avatar3} alt="Avatar 3" onClick={() => handleAvatarSelect(avatar3)} />
+              <img src={avatar4} alt="Avatar 4" onClick={() => handleAvatarSelect(avatar4)} />
+              <img src={avatar5} alt="Avatar 5" onClick={() => handleAvatarSelect(avatar5)} />
+              <img src={avatar6} alt="Avatar 6" onClick={() => handleAvatarSelect(avatar6)} />
+              <img src={avatar7} alt="Avatar 7" onClick={() => handleAvatarSelect(avatar7)} />
+              <img src={avatar8} alt="Avatar 8" onClick={() => handleAvatarSelect(avatar8)} />
+
+            </div>
+            <button onClick={closeAvatarModal}>Kapat</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

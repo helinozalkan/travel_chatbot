@@ -1,91 +1,106 @@
 .add-city-container {
-    max-width: 1000px; /* Maksimum genişliği artır */
+    max-width: 600px;
     margin: 0 auto;
-    padding: 30px; /* İç boşlukları artır */
-    border: 1px solid #ccc;
+    padding: 30px;
+    border: 5px solid #d5bde6; /* Hafif mor kenarlık */
     border-radius: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Daha belirgin gölge */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     background-color: #34495e;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -60%); /* Başlangıçta yukarıda */
 }
 
 .add-city-container h2 {
-    margin-bottom: 30px; /* Başlık altındaki boşluğu artır */
-    font-size: 28px; /* Başlık font boyutunu artır */
-    color: #ddd; /* Başlık rengi */
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #ddd;
+    text-align: center;
 }
 
 .add-city-container form {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
 .add-city-container label {
-    
-    margin-bottom: 20px; /* Etiketler arası boşluğu artır */
     font-weight: bold;
-    color: #ddd; /* Label rengi */
-    font-size: 18px; /* Etiket font boyutunu artır */
+    color: #ddd;
+    font-size: 18px;
 }
 
 .add-city-container input[type="text"],
 .add-city-container input[type="number"],
 .add-city-container textarea {
     width: 100%;
-    padding: 15px; /* İç boşlukları artır */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 18px; /* Font boyutunu artır */
+    padding: 15px;
+    border: 2px solid #d5bde6; /* Hafif mor kenarlık */
+    border-radius: 25px;
+    font-size: 16px;
     box-sizing: border-box;
-    color: #000; /* Input ve textarea metin rengi */
-    background-color: #fff; /* Input ve textarea arka plan rengi */
+    background-color: #fff;
+    color: #34495e;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.add-city-container input[type="text"]:focus,
+.add-city-container input[type="number"]:focus,
+.add-city-container textarea:focus {
+    border-color: #7b28a1; /* Focus olduğunda koyu mor kenarlık */
+    box-shadow: 0 0 8px rgba(162, 155, 254, 0.5);
 }
 
 .add-city-container textarea {
-    height: 150px; /* Textarea yüksekliğini artır */
+    height: 120px;
     resize: vertical;
 }
 
-.add-city-container button {
-    padding: 20px 40px !important; /* Buton iç boşluklarını daha fazla artır */
-    border: none !important;
-    border-radius: 30px !important; /* Köşeleri daha yuvarlak yapmak için */
-    background-color: #007bff !important;
-    color: #fff !important;
-    font-size: 22px !important; /* Font boyutunu artır */
-    cursor: pointer !important;
-    transition: background-color 0.3s ease !important;
-    margin-right: 15px !important; /* Butonlar arasındaki boşluğu koru */
-}
-
-.add-city-container button:hover {
-    background-color: #0056b3 !important;
-}
-
-
-
-.add-city-container .button-container {
+/* Multi-Button Style for Save, Clear, Close Buttons */
+.multi-button {
     display: flex;
-    justify-content: flex-end; /* Butonları sağa hizalar */
-    margin-top: 15px; /* Butonların üst boşluğunu artır */
+    justify-content: flex-end;
+    margin-top: 20px;
+    filter: drop-shadow(3px 10px 15px rgba(0, 0, 0, 0.45));
 }
 
-.add-city-container .error {
-    color: red;
-    font-size: 16px; /* Hata mesajı font boyutunu artır */
-    margin-top: 15px; /* Hata mesajının üst boşluğunu artır */
-    font-weight: bold; /* Hata mesajını vurgular */
+.multi-button button {
+    height: 50px;
+    width: 100px;
+    background: linear-gradient(to bottom, #fdd0ee, #7b28a1);
+    font-weight: bold;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    margin: -5px; 
+    padding: 0;
+    stroke: black;
+    outline: none;
+    transition: transform 0.1s ease, filter 0.1s ease;
 }
 
-/* Kapat butonuna özel stil */
-.add-city-container button.close-button {
-    background-color: #dc3545; /* Kapat butonu için kırmızı renk */
-    margin-right: 0; /* Sağdaki boşluğu kaldır */
+.multi-button button:nth-child(1) {
+    border-radius: 20px 0 0 20px;
 }
 
-.add-city-container button.close-button:hover {
-    background-color: #c82333; /* Hover efekti */
+.multi-button button:nth-child(3) {
+    border-radius: 0 20px 20px 0;
+}
+
+.multi-button button:hover {
+    cursor: pointer;
+    filter: drop-shadow(3px 5px 5px rgba(0, 0, 0, 0.45));
+}
+
+.multi-button button:active {
+    filter: none;
+    transform: scale(0.95);
+}
+
+
+.add-city-container.show {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Son konum */
 }

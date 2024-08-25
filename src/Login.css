@@ -19,10 +19,13 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 450px; /* Ekranın genişliğini artırdık */
     text-align: center;
+    position: relative; /* Şifre görme simgesi için gerekli */
+        align-items: center; /* Yatayda ortalar */
+
 }
 
 .logo {
-    width: 120px; /* Logo genişliğini artırdık */
+    width: 150px; /* Logo genişliğini artırdık */
     margin-bottom: 20px;
 }
 
@@ -31,7 +34,7 @@ h2 {
     font-size: 28px; /* Başlık font boyutunu artırdık */
 }
 
-/* Mevcut CSS kodları */
+/* Input alanlarının stili */
 input {
     width: 100%;
     padding: 12px; /* Input alanlarının iç padding'ini artırdık */
@@ -40,38 +43,142 @@ input {
     border-radius: 4px;
 }
 
-.button-login {
-    width: 100%;
-    padding: 12px; /* Buton padding'ini artırdık */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
+/* Göz simgesi ile şifreyi görme özelliği için stil */
+.password-container {
+    position: relative; /* Konumlandırma için gerekli */
+}
+
+.password-container input {
+    padding-right: 40px; /* Şifre görme simgesi için yeterli alan */
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
     cursor: pointer;
-    font-size: 18px; /* Buton font boyutunu artırdık */
+    font-size: 18px;
+    color: #007bff;
+}
+
+/* Şifremi Unuttum linki için stil */
+.additional-links {
+    margin-top: 30px; /* Linki formun altına daha fazla taşıdık */
+}
+
+/* Sosyal medya ikonları için stil */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Sosyal medya ikonlarından yeterli boşluk bırakır */
+}
+
+.social-icons .icon {
+    border-radius: 50%; /* Tam yuvarlak görünüm */
+    width: 60px; /* İkon genişliği */
+    height: 60px; /* İkon yüksekliği */
+    border: 2px solid #000; /* Çerçeve rengi ve kalınlığı */
+    background-color: white; /* Arka plan rengi */
+    margin: 0 10px; /* İkonlar arasındaki boşluk */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box; /* Border box modelini kullanarak border ve padding hesaplamalarını içerir */
+    transition: background-color 0.3s, border-color 0.3s; /* Renk geçişi efekti */
+}
+
+.social-icons .icon svg {
+    height: 24px; /* İkon boyutu */
+    width: 24px; /* İkon boyutu */
+    fill: #000; /* İkon rengi */
+    transition: fill 0.3s; /* İkon renginin geçişi */
+}
+
+.social-icons .icon:hover {
+    background-color: #90a0b1; /* Hover üzerindeki arka plan rengi */
+    border-color: #90a0b1; /* Hover üzerindeki border rengi */
+}
+
+.social-icons .icon:hover svg {
+    fill: #fff; /* Hover üzerindeki ikon rengi */
+}
+
+/* Sosyal Hesaplarla Giriş Yap mesajı için stil */
+.social-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px; /* Mesajın yukarıdan uzaklığı */
+}
+
+.social-message .line {
+    flex: 1;
+    height: 1px;
+    background-color: #ddd;
+}
+
+.social-message .message {
+    margin: 0 10px;
+    color: #000; /* Mesaj rengi */
+}
+
+/* Üyelik linki için stil */
+.signup-link {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.signup-link p {
+    margin: 0;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}
+
+/* Gönder butonunun stili */
+.button-login {
+    display: block;
+    width: 70%; /* Buton genişliği */
+    background-color: #007bff; /* Arka plan rengi */
+    padding: 1rem; /* İç padding */
+    text-align: center;
+    color: #fff; /* Yazı rengi */
+    border: none;
+    border-radius: 0.375rem; /* Köşe yuvarlama */
+    font-weight: 600; /* Font kalınlığı */
+    font-size: 1.125rem; /* Font boyutu */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Hover geçiş efekti */
+        margin: 0 auto; /* Butonu ortalar */
+
 }
 
 .button-login:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Hover üzerindeki arka plan rengi */
+}
+/* Şifremi Unuttum linkinin stili */
+.forgot {
+    position: absolute;
+    bottom: 16px; /* Sağ alt köşeye hizalayıcı boşluk */
+    right: 16px;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    color: rgba(156, 163, 175,1);
 }
 
-
-.error-message {
-    color: red;
-    margin-bottom: 10px;
-}
-
-.additional-links {
-    margin-top: 10px;
-}
-
-.additional-links a {
+.forgot a {
     color: #007bff;
     text-decoration: none;
-    display: block;
-    margin: 5px 0;
 }
 
-.additional-links a:hover {
+.forgot a:hover {
     text-decoration: underline;
 }

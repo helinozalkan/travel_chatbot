@@ -87,10 +87,10 @@ const AddCity = ({ onClose }) => {
                         required
                     />
                 </label>
-                <div className="button-container">
+                <div className="button-container multi-button">
                     <button type="submit">Kaydet</button>
                     <button type="button" onClick={handleClear}>Temizle</button>
-                    <button type="button" onClick={handleClose}>Kapat</button> {/* Add Kapat button */}
+                    <button type="button" onClick={handleClose}>Kapat</button>
                 </div>
                 {error && <div className="error">{error}</div>}
             </form>
