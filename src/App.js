@@ -4,7 +4,7 @@ import './Chat.css';
 import Login from './Login';
 import menuPhoto from './assets/menu-photo.png';
 import userProfilePic from './assets/user-profile.png';
-import botProfilePic from './assets/bot-profile.jpg';
+import botProfilePic from './assets/robot-profile.png';
 import avatar1 from './assets/user-profile.png'; // Yeni avatarlar eklenmiş
 import avatar2 from './assets/user-girl-profile.png';
 import avatar3 from './assets/man-profile.jpg';
@@ -34,9 +34,12 @@ function App() {
   const [cityListKey, setCityListKey] = useState(0);
   const [showAvatarModal, setShowAvatarModal] = useState(false);
   const [selectedAvatar, setSelectedAvatar] = useState(userProfilePic); // Varsayılan profil resmi
+  
 
   const messageEndRef = useRef(null);
   const navigate = useNavigate();
+
+
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
@@ -190,6 +193,29 @@ function App() {
   };
   
 
+  const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);
+const [newPassword, setNewPassword] = useState('');
+const [passwordError, setPasswordError] = useState('');
+
+const togglePasswordModal = () => {
+  setIsPasswordModalOpen(!isPasswordModalOpen);
+};
+
+const handlePasswordChange = () => {
+  if (newPassword.length < 8 || !/[A-Z]/.test(newPassword) || !/[a-z]/.test(newPassword) || !/[0-9]/.test(newPassword)) {
+    setPasswordError("Şifre en az 8 karakter uzunluğunda, bir büyük harf, bir küçük harf ve bir rakam içermelidir.");
+  } else {
+    const userId = localStorage.getItem('userId');
+    localStorage.setItem(`userPassword_${userId}`, newPassword);
+    alert("Şifreniz başarıyla güncellendi!");
+    setNewPassword('');
+    setPasswordError('');
+    togglePasswordModal();
+  }
+};
+
+  
+
   if (showLogin) {
     return <Login onLogin={handleLogin} />;
   }
@@ -276,12 +302,32 @@ function App() {
   />
   <div className={`profile-dropdown ${isProfileMenuOpen ? 'active' : ''}`}>
   <button class= "customize-button" onClick={openAvatarModal}>Özelleştir!</button>
+  <button className="update-password-button" onClick={togglePasswordModal}>Şifreyi Güncelle</button>
 
-    <Link to="#">Hesap Bilgileri</Link>
+
+    <Link to="#" onClick={() => setIsProfileMenuOpen(false)}>Hesap Bilgileri</Link> {/* Modal açma işlevini ekleyin */}
     <Link to="#">Sohbet Geçmişim</Link>
     <Link to="#">Ayarlar</Link>
     <a href="#" onClick={handleLogout}>Çıkış Yap</a>
   </div>
+
+      {/* Şifre Güncelleme Modal Penceresi */}
+      {isPasswordModalOpen && (
+      <div className="password-modal">
+        <div className="password-modal-content">
+          <h2>Şifreyi Güncelle</h2>
+          <input
+            type="password"
+            placeholder="Yeni Şifre"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
+          {passwordError && <div className="password-error">{passwordError}</div>}
+          <button onClick={handlePasswordChange}>Güncelle</button>
+          <button onClick={togglePasswordModal}>Kapat</button>
+        </div>
+      </div>
+    )}
 </div>
 
 
@@ -309,10 +355,11 @@ function App() {
               <img src={avatar8} alt="Avatar 8" onClick={() => handleAvatarSelect(avatar8)} />
 
             </div>
-            <button className="close-button" onClick={closeAvatarModal}>Kapat</button>
+            <button class= "close-button" onClick={closeAvatarModal}>Kapat</button>
           </div>
         </div>
       )}
+      
     </div>
   );
 }

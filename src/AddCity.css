@@ -2,10 +2,10 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 30px;
-    border: 5px solid #d5bde6; /* Hafif mor kenarlık */
+    border: 3px solid #2c3e50; /* Hafif mor kenarlık */
     border-radius: 25px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    background-color: #34495e;
+    background-color: #fff;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -15,7 +15,7 @@
 .add-city-container h2 {
     margin-bottom: 30px;
     font-size: 28px;
-    color: #ddd;
+    color: #34495e;
     text-align: center;
 }
 
@@ -27,7 +27,7 @@
 
 .add-city-container label {
     font-weight: bold;
-    color: #ddd;
+    color: #34495e;
     font-size: 18px;
 }
 
@@ -36,7 +36,7 @@
 .add-city-container textarea {
     width: 100%;
     padding: 15px;
-    border: 2px solid #d5bde6; /* Hafif mor kenarlık */
+    border: 2px solid #2c3e50; /* Hafif mor kenarlık */
     border-radius: 25px;
     font-size: 16px;
     box-sizing: border-box;
@@ -49,7 +49,7 @@
 .add-city-container input[type="text"]:focus,
 .add-city-container input[type="number"]:focus,
 .add-city-container textarea:focus {
-    border-color: #7b28a1; /* Focus olduğunda koyu mor kenarlık */
+    border-color: #007bff; /* Focus olduğunda koyu mor kenarlık */
     box-shadow: 0 0 8px rgba(162, 155, 254, 0.5);
 }
 
@@ -69,7 +69,7 @@
 .multi-button button {
     height: 50px;
     width: 100px;
-    background: linear-gradient(to bottom, #fdd0ee, #7b28a1);
+    background: linear-gradient(to bottom, #9bb3f7, #007bff);
     font-weight: bold;
     color: white;
     font-size: 1.2rem;
