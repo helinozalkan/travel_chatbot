@@ -5,7 +5,7 @@ import Login from './Login';
 import menuPhoto from './assets/menu-photo.png';
 import userProfilePic from './assets/user-profile.png';
 import botProfilePic from './assets/robot-profile.png';
-import avatar1 from './assets/user-profile.png'; // Yeni avatarlar eklenmiş
+import avatar1 from './assets/user-profile.png'; // Yeni avatarlar eklendi
 import avatar2 from './assets/user-girl-profile.png';
 import avatar3 from './assets/man-profile.jpg';
 import avatar4 from './assets/user-boy-profile.png';
@@ -70,7 +70,7 @@ function App() {
     if (storedAvatar) {
       setSelectedAvatar(storedAvatar);
     } else {
-      // Varsayılan avatarı ayarla
+      // Varsayılan avatarı ayarlama
       setSelectedAvatar(userProfilePic);
     }
   }, []);
@@ -186,7 +186,7 @@ function App() {
   
   const handleAvatarSelect = (avatar) => {
     setSelectedAvatar(avatar);
-    localStorage.setItem('userAvatar', avatar); // Profil resmini localStorage'a kaydedin
+    localStorage.setItem('userAvatar', avatar); // Profil resmini localStorage'a kaydetme
     alert('Profil fotoğrafınız başarıyla değiştirildi!'); // Avatar değiştirildiğinde alert göster
   
     closeAvatarModal();
@@ -305,30 +305,11 @@ const handlePasswordChange = () => {
   <button className="update-password-button" onClick={togglePasswordModal}>Şifreyi Güncelle</button>
 
 
-    <Link to="#" onClick={() => setIsProfileMenuOpen(false)}>Hesap Bilgileri</Link> {/* Modal açma işlevini ekleyin */}
+    <Link to="#" onClick={() => setIsProfileMenuOpen(false)}>Hesap Bilgileri</Link> {}
     <Link to="#">Sohbet Geçmişim</Link>
     <Link to="#">Ayarlar</Link>
     <a href="#" onClick={handleLogout}>Çıkış Yap</a>
   </div>
-
-      {/* Şifre Güncelleme Modal Penceresi */}
-      {isPasswordModalOpen && (
-      <div className="password-modal">
-        <div className="password-modal-content">
-          <h2>Şifreyi Güncelle</h2>
-          <input
-            type="password"
-            placeholder="Yeni Şifre"
-            value={newPassword}
-            onChange={(e) => setNewPassword(e.target.value)}
-          />
-          {passwordError && <div className="password-error">{passwordError}</div>}
-          <button onClick={handlePasswordChange}>Güncelle</button>
-          <button onClick={togglePasswordModal}>Kapat</button>
-        </div>
-      </div>
-    )}
-</div>
 
 
       <div className="city-selector-container">

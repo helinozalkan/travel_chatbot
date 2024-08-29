@@ -27,7 +27,7 @@ const AddCity = ({ onClose }) => {
             const result = await CityService.AddCity(formData);
             if (result.success) {
                 alert('Şehir başarıyla eklendi!');
-                onClose(); // Call onClose when the city is added successfully
+                onClose(); 
             } else {
                 setError(result.message);
             }
@@ -45,7 +45,7 @@ const AddCity = ({ onClose }) => {
     };
 
     const handleClose = () => {
-        onClose(); // Call onClose when the "Kapat" button is clicked
+        onClose(); 
     };
 
     return (

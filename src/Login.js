@@ -44,7 +44,7 @@ function Login({ onLogin }) {
           return;
         }
         localStorage.setItem(`password_${email}`, password);
-        localStorage.setItem(`chatHistory_${email}`, JSON.stringify([])); // Yeni kullanıcı için boş sohbet geçmişi oluştur
+        localStorage.setItem(`chatHistory_${email}`, JSON.stringify([])); // Yeni kullanıcı için boş sohbet geçmişi oluşturma
         setError('');
         alert('Kullanıcı başarıyla kaydedildi. Giriş yapabilirsiniz.');
         setIsRegistering(false);
@@ -64,7 +64,7 @@ function Login({ onLogin }) {
         setError('');
         const userId = email;
         localStorage.setItem('userId', userId);
-        // Giriş başarılıysa sohbet geçmişini yükle
+        // Giriş başarılıysa sohbet geçmişini yükleme
         const chatHistory = localStorage.getItem(`chatHistory_${email}`) || '[]';
         localStorage.setItem('chatHistory', chatHistory);
         onLogin();

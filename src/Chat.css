@@ -103,8 +103,8 @@ body {
   align-items: center;
   background-color: #f0f0f0;
   height: 100vh; /* Tüm ekranı kapsaması için */
-  width: 100%; /* Genişliği %100 yap */
-  position: fixed; /* Ekrana sabitle */
+  width: 100%; /* Genişliği %100 yapma */
+  position: fixed; /* Ekrana sabitleme */
 }
 
 .chat-box {
@@ -116,7 +116,7 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
-  margin: 0; /* Ortalanması için margin sıfırla */
+  margin: 0; 
 }
 
 .chat-header {
@@ -126,11 +126,11 @@ body {
   text-align: center;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  height: 20px; /* Yüksekliği artırdım */
+  height: 20px; 
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px; /* Font boyutunu artırdım */
+  font-size: 16px; 
   overflow: hidden;
   font-style: oblique;
 }
@@ -162,8 +162,8 @@ body {
 
 .message {
   padding: 10px;
-  border-radius: 30px; /* Köşeleri daha yuvarlak yap */
-  max-width: 60%; /* Maksimum genişliği %60 yap */
+  border-radius: 30px; 
+  max-width: 60%; 
   word-wrap: break-word;
   white-space: pre-line;
   position: relative;
@@ -172,22 +172,22 @@ body {
 
 /* Kullanıcı mesajları */
 .user-message {
-  background-color: #007bff; /* WhatsApp'taki kullanıcı balon rengi */
+  background-color: #007bff; 
   color: #ffffff;
   align-self: flex-end;
-  border-bottom-right-radius: 0; /* Sağ alt köşeyi sivri bırak */
-  font-size: 1.1rem; /* Yazı boyutunu büyüt */
+  border-bottom-right-radius: 0; 
+  font-size: 1.1rem; 
 
 }
 
 /* Bot mesajları */
 .bot-message {
-  background-color: #ddd; /* Bot mesajı için beyaz arka plan */
+  background-color: #ddd; 
   color: black;
   align-self: flex-start;
-  border-bottom-left-radius: 0; /* Sol alt köşeyi sivri bırak */
-  border: 1px solid #ddd; /* Hafif bir kenarlık ekleyelim */
-  font-size: 1.1rem; /* Yazı boyutunu büyüt */
+  border-bottom-left-radius: 0; 
+  border: 1px solid #ddd; 
+  font-size: 1.1rem; 
 
 }
 
@@ -199,36 +199,36 @@ body {
 
 .input-form {
   display: flex;
-  padding: 5px; /* Padding'i düzelttim */
+  padding: 5px; 
   border-top: 1px solid #ddd;
   border-radius: 35px;
 }
 
 input {
   flex: 1;
-  padding: 11px; /* Yatayda daha fazla boşluk */
-  font-size: 16px; /* Font boyutu ayarı */
+  padding: 11px; 
+  font-size: 16px; 
   border: 1px solid #ddd;
-  border-radius: 25px; /* Daha büyük köşe yuvarlaması */
-  height: 40px; /* Yüksekliği düzelttim */
+  border-radius: 25px; 
+  height: 40px; 
 }
 
 .button {
   text-decoration: none;
   line-height: 1;
-  border-radius: 3rem; /* Köşe yuvarlama */
+  border-radius: 3rem; 
   overflow: hidden;
   position: relative;
-  box-shadow: 4px 4px 8px rgba(0,0,0,.1); /* Gölge */
+  box-shadow: 4px 4px 8px rgba(0,0,0,.1); 
   background-color: #fff;
   color: #121212;
-  border: 2px solid #2c3e50; /* Çerçeve rengi ve kalınlığı */
+  border: 2px solid #2c3e50; 
   cursor: pointer;
-  padding: 0.2rem 1.2rem; /* Küçültülmüş yükseklik, arttırılmış genişlik */
-  font-size: 1rem; /* Küçültülmüş yazı tipi boyutu */
-  display: inline-flex; /* İçerik hizalaması için */
-  align-items: center; /* Buton yüksekliği */
-  justify-content: center; /* Buton merkezleme */
+  padding: 0.2rem 1.2rem; 
+  font-size: 1rem; 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
   width: 170px;
   height: 60px;
   margin-top: 10px;
@@ -253,8 +253,8 @@ input {
 }
 
 .button__icon {
-  width: 40px; /* Küçültülmüş ikon genişliği */
-  height: 40px; /* Küçültülmüş ikon yüksekliği */
+  width: 40px; 
+  height: 40px; 
   background-color: #007bff;
   display: grid;
   place-items: center;
@@ -264,11 +264,11 @@ input {
 .button__text {
   display: inline-block;
   transition: color .2s;
-  padding: 0 0.75rem; /* Küçültülmüş metin padding */
+  padding: 0 0.75rem; 
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 140px; /* Genişletilmiş maksimum genişlik */
+  max-width: 140px; 
 }
 
 .button:hover .button__text {
@@ -318,12 +318,12 @@ input {
   padding: 10px;
   color: #ffffff;
   text-decoration: none;
-  border-bottom: 1px solid #ddd; /* Menü öğeleri arasına çizgi ekler */
+  border-bottom: 1px solid #ddd; 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .profile-menu a:last-child {
-  border-bottom: none; /* Son öğenin altındaki çizgiyi kaldırır */
+  border-bottom: none; 
 }
 
 .profile-menu a:hover {
@@ -331,7 +331,7 @@ input {
   color: #ffffff; /* Yazı rengi */
 }
 
-/* Çizgi aralığını biraz daha görünür yapmak için opsiyonel */
+
 .profile-menu a {
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px; /* Çizgi ve metin arasındaki mesafeyi ayarlar */
@@ -342,7 +342,7 @@ input {
 .city-selector {
   border: 1px solid #ddd;
   padding: 10px;
-  height: 779px; /* Mevcut yüksekliği koru */
+  height: 779px; 
   background-color: #2c3e50; /* Arka plan rengi */
   border-radius: 8px; /* Kenar yuvarlaması */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
@@ -350,8 +350,8 @@ input {
   max-height: 900px; /* Maksimum yüksekliği sınırla */
   overflow-y: auto; /* Kaydırma çubuğu */
   position: absolute;
-  top: 79px; /* Mevcut konumu koru */
-  right: 284px; /* Konumu sağa kaydırdım */
+  top: 79px; 
+  right: 284px; 
 }
 
 /* Başlık */
@@ -359,7 +359,7 @@ input {
   font-size: 18px;
   margin-bottom: 12px;
   text-align: center;
-  color: #ffffff; /* Başlık rengini beyaz yap */
+  color: #ffffff; 
 }
 
 /* Liste */
@@ -374,7 +374,7 @@ input {
   padding: 10px;
   cursor: pointer;
   font-size: 16px;
-  color: #ffffff; /* Yazı rengini beyaz yap */
+  color: #ffffff; 
   border-bottom: 1px solid #ddd;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -390,7 +390,7 @@ input {
 /* Seçili Şehir */
 .city-selector li.selected {
   background-color: #007bff;
-  color: white; /* Seçili şehir için arka plan ve yazı rengini ayarla */
+  color: white; 
 }
 
 
@@ -502,7 +502,7 @@ input {
 
 
 /* Avatar Modal */
-/* Avatar Modal Stilleri */
+
 .avatar-modal {
   position: fixed;
   top: 0;
@@ -523,7 +523,7 @@ input {
   border: 2px solid #2c3e50; 
   border-radius: 8px;
   width: 80%;
-  max-width: 600px; /* Modal genişliğini sınırlayın */
+  max-width: 600px; 
   text-align: center;
 }
 
@@ -535,15 +535,15 @@ input {
 }
 
 .avatar-options img {
-  width: 100px; /* Avatar boyutunu artırın */
-  height: 100px; /* Avatar boyutunu artırın */
+  width: 100px; 
+  height: 100px; 
   border-radius: 50%;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
 .avatar-options img:hover {
-  transform: scale(1.1); /* Hover efekti ile avatarı büyütün */
+  transform: scale(1.1); 
 }
 
 .avatar-options img.selected {

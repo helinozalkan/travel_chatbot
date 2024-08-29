@@ -17,12 +17,12 @@ const CitySelector = ({ onCitySelect }) => {
     // Şehirleri ilk yükleme
     getCities();
 
-    // 10 saniyede bir güncellemek için interval ayarla
+    // 10 saniyede bir güncellemek için interval ayarlama
     const intervalId = setInterval(() => {
       getCities();
     }, 10000); // 100000 ms = 10 saniye
 
-    // Bileşen temizlendiğinde interval'i temizle
+    // Bileşen temizlendiğinde interval'i temizleme
     return () => clearInterval(intervalId);
   }, []);
 

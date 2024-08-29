@@ -6,7 +6,7 @@ const API_BASE_URL = 'http://localhost:5204';
 export const fetchChatbotResponse = async (destination, language) => {
   try {
     const response = await axios.get(`${API_BASE_URL}/travel/${destination}/${language}`);
-    console.log('API yanıtı:', response.data); // API yanıtını kontrol edin
+    console.log('API yanıtı:', response.data); // API yanıtını kontrol etme
     
     if (
       response.data &&
@@ -39,13 +39,13 @@ export const fetchChatbotResponse = async (destination, language) => {
 export const fetchCities = async () => {
   try {
     const response = await axios.get(`${API_BASE_URL}/cities`);
-    console.log('Şehirler:', response.data); // API yanıtını kontrol edin
+    console.log('Şehirler:', response.data); 
 
     if (Array.isArray(response.data)) {
       return response.data;
     }
     else if (response.data.DataSource) {
-      // Eğer yanıt `DataSource` bilgisini içeriyorsa, bu bilgiyi de loglayın
+   
       console.log('Yanıt Kaynağı:', response.data.DataSource);
       return [];
     }  else {
@@ -64,9 +64,9 @@ export const fetchCities = async () => {
 export const AddCity = async (cityData) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/destinations`, cityData);
-    console.log('Şehir eklendi:', response.data); // API yanıtını kontrol edin
+    console.log('Şehir eklendi:', response.data); 
 
-    if (response.status === 200) { // 200 OK
+    if (response.status === 200) { 
       return response.data; // Başarıyla eklenen şehir bilgileri
     } else {
       console.error('Şehir ekleme başarısız oldu.');

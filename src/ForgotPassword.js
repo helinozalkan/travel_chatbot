@@ -8,8 +8,7 @@ function ForgotPassword() {
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     if (email) {
-      // Burada e-posta doğrulama ve şifre sıfırlama işlemini başlatmalısınız
-      // Örnek: await sendPasswordResetEmail(email);
+
       setMessage('Şifre sıfırlama bağlantısı e-posta adresinize gönderildi.');
     } else {
       setMessage('Lütfen e-posta adresinizi girin.');

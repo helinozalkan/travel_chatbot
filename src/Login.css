@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #dddddd66; /* Chatbot sayfanızdaki gri arka plan rengi */
+    background-color: #dddddd66; 
 }
 
 .login-container {
@@ -9,35 +9,35 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #34495e; /* Dış arka plan rengi */
+    background-color: #34495e; 
 }
 
 .login-box {
     background: white;
-    padding: 60px; /* Ekranı biraz daha büyüttük */
+    padding: 60px; 
     border-radius: 30px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 450px; /* Ekranın genişliğini artırdık */
+    width: 450px; 
     text-align: center;
-    position: relative; /* Şifre görme simgesi için gerekli */
-        align-items: center; /* Yatayda ortalar */
+    position: relative; 
+        align-items: center; 
 
 }
 
 .logo {
-    width: 150px; /* Logo genişliğini artırdık */
+    width: 150px; 
     margin-bottom: 20px;
 }
 
 h2 {
     margin-bottom: 20px;
-    font-size: 28px; /* Başlık font boyutunu artırdık */
+    font-size: 28px; 
 }
 
 /* Input alanlarının stili */
 input {
     width: 100%;
-    padding: 12px; /* Input alanlarının iç padding'ini artırdık */
+    padding: 12px; 
     margin: 10px 0;
     border: 1px solid #ddd;
     border-radius: 4px;
@@ -45,11 +45,11 @@ input {
 
 /* Göz simgesi ile şifreyi görme özelliği için stil */
 .password-container {
-    position: relative; /* Konumlandırma için gerekli */
+    position: relative; 
 }
 
 .password-container input {
-    padding-right: 40px; /* Şifre görme simgesi için yeterli alan */
+    padding-right: 40px; 
 }
 
 .password-toggle {
@@ -64,35 +64,35 @@ input {
 
 /* Şifremi Unuttum linki için stil */
 .additional-links {
-    margin-top: 30px; /* Linki formun altına daha fazla taşıdık */
+    margin-top: 30px; 
 }
 
 /* Sosyal medya ikonları için stil */
 .social-icons {
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Sosyal medya ikonlarından yeterli boşluk bırakır */
+    margin-top: 20px; 
 }
 
 .social-icons .icon {
-    border-radius: 50%; /* Tam yuvarlak görünüm */
-    width: 60px; /* İkon genişliği */
-    height: 60px; /* İkon yüksekliği */
-    border: 2px solid #000; /* Çerçeve rengi ve kalınlığı */
-    background-color: white; /* Arka plan rengi */
+    border-radius: 50%; 
+    width: 60px; 
+    height: 60px; 
+    border: 2px solid #000; 
+    background-color: white; 
     margin: 0 10px; /* İkonlar arasındaki boşluk */
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-sizing: border-box; /* Border box modelini kullanarak border ve padding hesaplamalarını içerir */
+    box-sizing: border-box; 
     transition: background-color 0.3s, border-color 0.3s; /* Renk geçişi efekti */
 }
 
 .social-icons .icon svg {
-    height: 24px; /* İkon boyutu */
-    width: 24px; /* İkon boyutu */
-    fill: #000; /* İkon rengi */
+    height: 24px; 
+    width: 24px; 
+    fill: #000; 
     transition: fill 0.3s; /* İkon renginin geçişi */
 }
 
@@ -162,7 +162,7 @@ input {
 }
 
 .button-login:hover {
-    background-color: #0056b3; /* Hover üzerindeki arka plan rengi */
+    background-color: #0056b3; 
 }
 /* Şifremi Unuttum linkinin stili */
 .forgot {

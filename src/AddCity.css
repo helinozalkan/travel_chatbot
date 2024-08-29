@@ -2,14 +2,14 @@
     max-width: 600px;
     margin: 0 auto;
     padding: 30px;
-    border: 3px solid #2c3e50; /* Hafif mor kenarlık */
+    border: 3px solid #2c3e50; 
     border-radius: 25px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     background-color: #fff;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -60%); /* Başlangıçta yukarıda */
+    transform: translate(-50%, -60%); 
 }
 
 .add-city-container h2 {
@@ -36,7 +36,7 @@
 .add-city-container textarea {
     width: 100%;
     padding: 15px;
-    border: 2px solid #2c3e50; /* Hafif mor kenarlık */
+    border: 2px solid #2c3e50;
     border-radius: 25px;
     font-size: 16px;
     box-sizing: border-box;
@@ -49,7 +49,7 @@
 .add-city-container input[type="text"]:focus,
 .add-city-container input[type="number"]:focus,
 .add-city-container textarea:focus {
-    border-color: #007bff; /* Focus olduğunda koyu mor kenarlık */
+    border-color: #007bff; 
     box-shadow: 0 0 8px rgba(162, 155, 254, 0.5);
 }
 
@@ -102,5 +102,5 @@
 
 .add-city-container.show {
     opacity: 1;
-    transform: translate(-50%, -50%); /* Son konum */
+    transform: translate(-50%, -50%); 
 }
