@@ -311,6 +311,25 @@ const handlePasswordChange = () => {
     <a href="#" onClick={handleLogout}>Çıkış Yap</a>
   </div>
 
+      {/* Şifre Güncelleme Modal Penceresi */}
+      {isPasswordModalOpen && (
+      <div className="password-modal">
+        <div className="password-modal-content">
+          <h2>Şifreyi Güncelle</h2>
+          <input
+            type="password"
+            placeholder="Yeni Şifre"
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
+          {passwordError && <div className="password-error">{passwordError}</div>}
+          <button onClick={handlePasswordChange}>Güncelle</button>
+          <button onClick={togglePasswordModal}>Kapat</button>
+        </div>
+      </div>
+    )}
+</div>
+
 
       <div className="city-selector-container">
         <CitySelector onCitySelect={handleCitySelect} key={cityListKey} />
